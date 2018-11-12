@@ -1,0 +1,36 @@
+
+extends layout
+
+block append head
+  script(src="../javascripts/main.js")
+  script(src="../javascripts/services/addMembersButtonAlerts.js")
+
+block content
+
+
+  h1= title
+  <label id="MemberInfo">Please add one member at a time</label>
+  <br>
+  <button onclick="addMemberTable()" id="AddMemberBtn" class="update-buttonMember">Add New Member</button>
+  <br><br><br>
+
+   form(method='POST' enctype="multipart/form-data" id="membersForm" action='/upload/')
+    table(class="pure-table pure-table-bordered" id="memberstable")
+      thead
+          tr: th Name
+              th Seat Location
+              th Photo
+              th
+              th
+
+
+      tbody
+
+          each mem in mems
+              tr
+                  td #{mem.memberName}
+                  td #{mem.seatLocation}
+                  td <img src="image/#{mem.filename}" alt="" class="avatar">
+                  td
+                    input(class="update-button" type='submit' onClick="return confirm('Are you sure you would like to delete this member?')" formaction='/deletemember/' + mem._id value="Delete")
+                  <td><a href="/updatememberForm/#{mem.id}" class="update-button"</a>Update</td>

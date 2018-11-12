@@ -1,0 +1,113 @@
+extends layout
+
+block append head
+  script(src="../javascripts/main.js")
+  script(src="../javascripts/services/updateButtonFunction.js")
+
+block content
+
+
+  <div class="updateForm">
+
+
+    form(role='form', name='mainForm' action='/update/' + ev._id, method='post')
+     <div class='event-form'>
+      <p>Edit Event</p>
+       <div class="required">
+        <div>
+          <label for="eventName">Event Name: </label>
+          <input type="text" id="eventName" name="eventName" placeholder="name" maxlength="20" value='#{ev.eventName}'>
+        </div><br>
+      </div>
+      <div>
+        <label for="eventdate">Enter date of event:</label>
+        <input type="date" id="date" name="date" value=#{ev.date}>
+        <date-util format="dd/MM/yyyy"></date-util>
+      </div><br>
+      <div>
+        <label for="organiser">Organiser: </label>
+        <input type="text" id="organiser" name="organiser" maxlength="20" value='#{ev.organiser}'>
+      </div><br>
+      <div>
+        <label for="location">Location: </label>
+        <input type="text" id="location" name="location" maxlength="20" value='#{ev.location}'>
+      </div><br>
+      <div class= eventNotes>
+        <label for="contact">Contact Details: </label>
+      </div>
+      <div>
+        <textarea id="contact" class="Contactscrollabletextbox" name="contact" rows="1">#{ev.contact}</textarea>
+      </div><br>
+      <div>
+        <label for="budget">Budget: </label>
+        <input type="number" id="budget" name="budget" value=#{ev.budget}>
+      </div><br>
+      <div>
+        <label for="PlannedAttendance">Planned Attendance: </label>
+        <input type="number" id="PlannedAttendance" name="PlannedAttendance" value=#{ev.PlannedAttendance}>
+      </div><br>
+      <div>
+        <label for="costPerHead">&nbsp &nbsp &nbsp &nbsp Cost per head: </label>
+        <input type="number" id="costPerHead" name="costPerHead" value=#{ev.costPerHead}>
+      </div><br>
+      <div>
+        <label for="deductionOffered">&nbsp &nbsp &nbsp &nbsp Deduction Offered (%): </label>
+        <input type="number" id="deductionOffered" name="deductionOffered" value=#{ev.deductionOffered}>
+      </div><br>
+      <div>
+        <label for="totalCost">&nbsp &nbsp &nbsp &nbsp Total Cost: </label>
+        <input type="number" id="totalCost" name="totalCost" value=#{ev.totalCost}>
+      </div><br>
+      <div>
+        <label for="ActualAttendance">Actual Attendance: </label>
+        <input type="number" id="ActualAttendance" name="ActualAttendance" value=#{ev.ActualAttendance}>
+      </div><br>
+      <label for="rating">Rate Event Setup: </label>
+
+      <div class="rating">
+          <input id="star5" name="setupRating" type="radio" value="5" class="radio-btn hide" />
+            <label for="star5">☆</label>
+            <input id="star4" name="setupRating" type="radio" value="4" class="radio-btn hide" />
+            <label for="star4">☆</label>
+            <input id="star3" name="setupRating" type="radio" value="3" class="radio-btn hide" />
+            <label for="star3">☆</label>
+            <input id="star2" name="setupRating" type="radio" value="2" class="radio-btn hide" />
+            <label for="star2">☆</label>
+            <input id="star1" name="setupRating" type="radio" value="1" class="radio-btn hide" />
+            <label for="star1">☆</label>
+            <div class="clear"></div>
+      </div><br><br>
+      <div>
+        <label for="CurrentRating">Current Rating:</label>
+        <input readonly id=CurrentRating placeholder="No Rating set" value=#{ev.setupRating}>
+      </div><br>
+      <div class = eventNotes>
+        <label for="msg">Additional Notes:</label>
+      </div><br>
+      <div>
+        <textarea id="additionalNotes" class="scrollabletextbox" name="additionalNotes" rows="6">#{ev.additionalNotes}</textarea>
+      </div><br>
+     </div>
+
+     <div class = toright>
+        <div class = instructions>
+          <label for="msg">Instructions: </label>
+        </div><br>
+        <div>
+          <textarea id="instructions" class="scrollabletextbox" id="msg" name="instructions" rows="12">#{ev.instructions}</textarea>
+        </div><br><br><br><br><br>
+        <div>
+          <label for="eventStatus">Event Status: </label>
+          <div class=status>
+            <input readonly type="String" id="eventStatus" name="eventStatus" value='#{category}'>
+          </div>
+        </div><br><br><br><br><br><br><br>
+
+        <input type="hidden" id="eventType" name="eventType" value=#{ev.eventType}>
+
+     </div>
+     <div class = toright>
+       input(class='submit-button' onsubmit="setEventStatus()" onclick="updateButtonFunction()" type="button" value="Update")
+       input(class='submit-button' onClick="return confirm('Are you sure you would like to delete this event ?')" type='submit' formaction='/deleteevent/' + ev._id value="Delete")
+     </div>
+  </div>

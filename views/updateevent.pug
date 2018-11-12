@@ -1,0 +1,76 @@
+extends layout
+
+block append head
+  script(src="../javascripts/main.js")
+
+block content
+
+  h2 Events in Planning phases
+  h3 Click on event name to edit or delete event:
+  <button class="EventTitle Updatetablink1"disabled>Annual</button>
+  <button class="EventTitle Updatetablink2"disabled>Monthly</button>
+  <button class="EventTitle Updatetablink3"disabled>Weekly</button>
+  <button class="EventTitle Updatetablink4"disabled>One-offs</button>
+  <button class="EventTitle Updatetablink5"disabled>Sundries</button>
+
+
+  form(role='form', action='postevent', method='post')
+    <div class="annualEvents">
+      <br>
+      table(border=0 id="updateTable")
+          tbody
+              each ev in evs
+                  if ev.eventType == 'Annual'
+                      tr
+                          <td><a href="/updateForm/#{ev.id}">#{ev.eventName}</a></td>
+                          td #{ev.date}
+    </div>
+
+
+    <div class="monthlyEvents">
+      <br>
+
+      table(border=0 id="updateTable")
+          tbody
+              each ev in evs
+                  if ev.eventType == 'Monthly'
+                      tr
+                          <td><a href="/updateForm/#{ev.id}">#{ev.eventName}</a></td>
+                          td #{ev.date}
+    </div>
+
+    <div class="weeklyEvents">
+      <br>
+      table(border=0 id="updateTable")
+          tbody
+              each ev in evs
+                  if ev.eventType == 'Weekly'
+                      tr
+                          <td><a href="/updateForm/#{ev.id}">#{ev.eventName}</a></td>
+                          td #{ev.date}
+    </div>
+
+
+    <div class="One-offsEvents">
+
+      <br>
+      table(border=0 id="updateTable")
+          tbody
+              each ev in evs
+                  if ev.eventType == 'One-offs'
+                      tr
+                          <td><a href="/updateForm/#{ev.id}">#{ev.eventName}</a></td>
+                          td #{ev.date}
+    </div>
+
+    <div class="sundriesEvents">
+
+      <br>
+      table(border=0 id="updateTable")
+          tbody
+              each ev in evs
+                  if ev.eventType == 'Sundries'
+                      tr
+                          <td><a href="/updateForm/#{ev.id}">#{ev.eventName}</a></td>
+                          td #{ev.date}
+    </div>

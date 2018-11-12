@@ -1,0 +1,55 @@
+extends layout
+
+block append head
+  script(src="../javascripts/main.js")
+
+block content
+
+  h2= title
+  title1
+
+  table(class="pure-table pure-table-bordered" id="table")
+      thead
+          tr: th <b>#</b>
+              th <b>Event name</b>
+              th <b>Event Type</b>
+              th <b>Date of Event</b>
+              th <b>Organiser</b>
+              th <b>Location</b>
+              th <b>Contact Info</b>
+              th <b>Budget</b>
+              th <b>Cost per Head</b>
+              th <b>Total Cost</b>
+              th <b>Event deduction offered</b>
+              th <b>Event attendance</b>
+
+      tbody
+
+          tr
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+
+          each ev in evs
+              tr
+                  td <b>#{count++}</b>
+                  td #{ev.eventName}
+                  td #{ev.eventType}
+                  td #{ev.date}
+                  td #{ev.organiser}
+                  td #{ev.location}
+                  td #{ev.contact}
+                  td #{ev.budget}
+                  td #{ev.costPerHead}
+                  td #{ev.totalCost}
+                  td #{ev.deductionOffered}
+                  td #{ev.attendance}

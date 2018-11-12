@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
+
+    block head
+
+  body
+
+  div(class="wrapper")
+
+    div(class ="headbar")
+      a(href='/')
+        h1 Sports & Social Committee
+
+      div(class="search")
+        form(method='POST' action='/searchresults')
+          button.btn.btn-primary(id="IconSubmit" onClick="emptySearchField()" type='submit')
+            label(for='search') <i class="fa fa-search" id="SearchLogo"></i>
+          div.form-group
+            input.form-control(type='text' id='searchField' placeholder='Search Events...' name='searchField')
+
+        a(href='/')
+          img(src="../images/allstateLogo.png" alt="picture here" id="imgAllstate")
+
+    div(class='sidebar')
+      div(class="sidebar-panel")
+        a(class="sidebar-button" href="/") Home
+        a(class="sidebar-button" id="indent" href="/updatemembers") Update members
+        a(class="sidebar-button" href="/planevent") Create Event
+        a(class="sidebar-button" href="/updateevent") Upcoming Events
+        a(class="sidebar-button" href="/eventhistory") Previous Events
+        a(class="veryimportantandvitalbutton" href="http://www3.pictures.zimbio.com/mp/EFXkraiMT7el.jpg")
+    div(class="vl")
+
+    div(class="main-body")
+
+      block content

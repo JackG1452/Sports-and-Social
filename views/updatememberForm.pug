@@ -1,0 +1,32 @@
+extends layout
+
+block append head
+  script(src="../javascripts/main.js")
+
+block content
+
+
+  <div class="updatememberForm">
+
+
+    form(action='/edit/' + mem._id, method='post')
+     <div class='member-form'>
+      <p>Edit Member</p>
+      <div>
+        <img src="image/#{mem.filename}" alt="" class="AvatarImages">
+      </div><br>
+      <div>
+        <label for="memberName">Member Name:  </label>
+        <input type="text" id="memberName" value='#{mem.memberName}' name="memberName" maxlength="20">
+      </div><br>
+      <div>
+        <label for"seatLocation">Seat Location: </label>
+        <input type="text" id="seatLocation" value='#{mem.seatLocation}' name=seatLocation maxlength="20">
+      </div><br>
+
+      <div>
+        input(class="update-button" type="submit" value="Update")
+      </div>
+
+     </div>
+  </div>

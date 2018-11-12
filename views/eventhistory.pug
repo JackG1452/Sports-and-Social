@@ -1,0 +1,59 @@
+extends layout
+
+block append head
+  script(src="../javascripts/main.js")
+
+block content
+
+  h2= title
+  table(class="pure-table pure-table-bordered" id="table")
+      thead
+          tr: th <b>#</b>
+              th <b>Event name</b>
+              th <b>Event type</b>
+              th <b>Event date</b>
+              th <b>Organiser</b>
+              th <b>Location</b>
+              th <b>Contact info</b>
+              th <b>Budget</b>
+              th <b>Cost per head</b>
+              th <b>Total cost</b>
+              th <b>Deduction offered (%)</b>
+              th <b>Actual Attendance</b>
+              th <b>Setup Ratng</b>
+              th <b>Event status</b>
+
+      tbody
+
+          tr
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+              td <br>
+
+          each ev in evs
+              tr
+                  td <b>#{count++}</b>
+                  <td><a href="/eventhistoryForm/#{ev.id}">#{ev.eventName}</a></td>
+                  td #{ev.eventType}
+                  td #{ev.date}
+                  td #{ev.organiser}
+                  td #{ev.location}
+                  td #{ev.contact}
+                  td #{ev.budget}
+                  td #{ev.costPerHead}
+                  td #{ev.totalCost}
+                  td #{ev.deductionOffered}
+                  td #{ev.ActualAttendance}
+                  td #{ev.setupRating}
+                  td #{ev.category}

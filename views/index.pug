@@ -1,0 +1,18 @@
+extends layout
+
+block append head
+  script(src="../javascripts/main.js")
+
+block content
+  h2= title
+  h3= title2
+  a(href="/updatemembers")
+    <button onclick="showElement()" id="UpdateMembers" class="update-button"><span>Update Members</span></button>
+
+  <div class="image-grid">
+    <div class="row">
+      <div class="column">
+        each mem in mems
+          <div class="hover-animation" data-text='#{mem.memberName}, #{mem.seatLocation}'>
+              <img src="image/#{mem.filename}" alt="" class="Images">
+          </div>

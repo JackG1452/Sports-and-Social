@@ -1,0 +1,524 @@
+extends layout
+
+block append head
+  script(src="../javascripts/services/saveButtonFunction.js")
+  script(src="../javascripts/planevent.js")
+  script(src="../javascripts/main.js")
+
+
+block content
+
+
+  h2 Select type of event to start planning:
+
+  <button class="EventButton tablink1" onclick="openPage('Annual', this, 'rgb(100,149,237,0.4);')">Annual</button>
+  <button class="EventButton tablink2" onclick="openPage('Monthly', this, 'rgb(255,160,122,0.6);')">Monthly</button>
+  <button class="EventButton tablink3" onclick="openPage('Weekly', this, 'rgb(154,205,50,0.6);')">Weekly</button>
+  <button class="EventButton tablink4" onclick="openPage('One-offs', this, 'rgb(205,92,92,0.8);')">One-offs</button>
+  <button class="EventButton tablink5" onclick="openPage('Sundries', this, 'rgb(255,215,0,0.6);')">Sundries</button>
+
+  <div id="Annual" class="tabcontent">
+
+    form(role='form', name='mainForm' action='postevent', method='post')
+     <div class='event-form'>
+      <p>Create an annual event..</p>
+      <div class="required">
+        <div>
+          <label for="eventName">Event Name: </label>
+          <input type="text" id="eventName" name="eventName" placeholder="name" maxlength="20">
+        </div><br>
+      </div>
+      <div>
+        <label for="eventdate">Enter date of event:</label>
+        <input type="date" id="date" name="date">
+        <date-util format="dd/mm/yyyy"></date-util>
+      </div><br>
+      <div>
+        <label for="organiser">Organiser: </label>
+        <input type="text" id="organiser" name="organiser" placeholder="ex. John Doe" maxlength="20">
+      </div><br>
+      <div>
+        <label for="location">Location: </label>
+        <input type="text" id="location" name="location" maxlength="20">
+      </div><br>
+      <div class= eventNotes>
+        <label for="contact">Contact Details: </label>
+      </div>
+      <div>
+        <textarea id="contact" class="Contactscrollabletextbox" name="contact" rows="1"></textarea>
+      </div><br>
+      <div>
+        <label for="budget">Budget: </label>
+        <input type="number" id="budget" name="budget" placeholder="0" maxlength="20">
+      </div><br>
+      <div>
+        <label for="PlannedAttendance">Planned Attendance: </label>
+        <input type="number" id="PlannedAttendance" name="PlannedAttendance" placeholder="0">
+      </div><br>
+      <div>
+        <label for="costPerHead">&nbsp &nbsp &nbsp &nbsp Cost per head: </label>
+        <input type="number" id="costPerHead" name="costPerHead" placeholder="0">
+      </div><br>
+      <div>
+        <label for="deductionOffered">&nbsp &nbsp &nbsp &nbsp Deduction Offered (%): </label>
+        <input type="number" id="deductionOffered" name="deductionOffered" placeholder="0">
+      </div><br>
+      <div>
+        <label for="totalCost">&nbsp &nbsp &nbsp &nbsp Total Cost: </label>
+        <input type="number" id="totalCost" name="totalCost" placeholder="0">
+      </div><br>
+      <div>
+        <label for="ActualAttendance">Actual Attendance: </label>
+        <input type="number" id="ActualAttendance" name="ActualAttendance" placeholder="0">
+      </div><br>
+      <label for="rating">Rate Event Setup: </label>
+
+      <div class="rating">
+            <input id="star5" name="setupRating" type="radio" value="5" class="radio-btn hide">
+            <label for="star5">☆</label>
+            <input id="star4" name="setupRating" type="radio" value="4" class="radio-btn hide">
+            <label for="star4">☆</label>
+            <input id="star3" name="setupRating" type="radio" value="3" class="radio-btn hide">
+            <label for="star3">☆</label>
+            <input id="star2" name="setupRating" type="radio" value="2" class="radio-btn hide">
+            <label for="star2">☆</label>
+            <input id="star1" name="setupRating" type="radio" value="1" class="radio-btn hide">
+            <label for="star1">☆</label>
+            <div class="clear"></div>
+      </div><br><br>
+
+      <div class = eventNotes>
+        <label for="msg">Additional Notes:</label>
+      </div><br>
+      <div>
+        <textarea id="additionalNotes" class="scrollabletextbox" name="additionalNotes" placeholder="Add event notes here" rows="6"></textarea>
+      </div><br>
+     </div>
+
+     <div class = toright>
+        <div class = instructions>
+          <label for="msg">Instructions: </label>
+        </div><br>
+        <div>
+          <textarea id="instructions" class="scrollabletextbox" id="msg" name="instructions" placeholder="Add instructions for other members here" rows="12"></textarea>
+        </div><br><br><br><br><br>
+        <div>
+          <label for="eventStatus">Event Status: </label>
+          <div class=status>
+            <input readonly type="String" id="eventStatus" name="eventStatus" value="New">
+          </div>
+        </div><br><br><br><br><br><br><br>
+
+        <input type="hidden" id="eventType" name="eventType" value="Annual">
+
+     </div>
+     <div class = toright>
+       input(class='submit-button' onsubmit="setEventStatus()" onclick="saveButtonFunction()" type="button" value="Save")
+
+       a(class="submit-button" onclick="return confirm('Are you sure you wish to go back? Any unsaved event data will be lost!')" href="") Back
+     </div>
+  </div>
+
+  <div id="Monthly" class="tabcontent">
+
+    form(role='form', name='monthlyForm' action='postevent', method='post')
+     <div class='event-form'>
+      <p>Create a monthly event..</p>
+       <div class="required">
+        <div>
+          <label for="eventName">Event Name: </label>
+          <input type="text" id="eventName" name="eventName" placeholder="name" maxlength="20">
+        </div><br>
+      </div>
+      <div>
+        <label for="eventdate">Enter date of event:</label>
+        <input type="date" id="date" name="date">
+        <date-util format="dd/mm/yyyy"></date-util>
+      </div><br>
+      <div>
+        <label for="organiser">Organiser: </label>
+        <input type="text" id="organiser" name="organiser" placeholder="ex. John Doe" maxlength="20">
+      </div><br>
+      <div>
+        <label for="location">Location: </label>
+        <input type="text" id="location" name="location" maxlength="20">
+      </div><br>
+      <div class= eventNotes>
+        <label for="contact">Contact Details: </label>
+      </div>
+      <div>
+        <textarea id="contact" class="Contactscrollabletextbox" name="contact" rows="1"></textarea>
+      </div><br>
+      <div>
+        <label for="budget">Budget: </label>
+        <input type="number" id="budget" name="budget" placeholder="0">
+      </div><br>
+      <div>
+        <label for="PlannedAttendance">Planned Attendance: </label>
+        <input type="number" id="PlannedAttendance" name="PlannedAttendance" placeholder="0">
+      </div><br>
+      <div>
+        <label for="costPerHead">&nbsp &nbsp &nbsp &nbsp Cost per head: </label>
+        <input type="number" id="costPerHead" name="costPerHead" placeholder="0">
+      </div><br>
+      <div>
+        <label for="deductionOffered">&nbsp &nbsp &nbsp &nbsp Deduction Offered (%): </label>
+        <input type="number" id="deductionOffered" name="deductionOffered" placeholder="0">
+      </div><br>
+      <div>
+        <label for="totalCost">&nbsp &nbsp &nbsp &nbsp Total Cost: </label>
+        <input type="number" id="totalCost" name="totalCost" placeholder="0">
+      </div><br>
+      <div>
+        <label for="ActualAttendance">Actual Attendance: </label>
+        <input type="number" id="ActualAttendance" name="ActualAttendance" placeholder="0">
+      </div><br>
+      <label for="rating">Rate Event Setup: </label>
+
+      <div class="rating">
+          <input id="monthlyStar5" name="setupRating" type="radio" value="5" class="radio-btn hide">
+            <label for="monthlyStar5">☆</label>
+            <input id="monthlyStar4" name="setupRating" type="radio" value="4" class="radio-btn hide">
+            <label for="monthlyStar4">☆</label>
+            <input id="monthlyStar3" name="setupRating" type="radio" value="3" class="radio-btn hide">
+            <label for="monthlyStar3">☆</label>
+            <input id="monthlyStar2" name="setupRating" type="radio" value="2" class="radio-btn hide">
+            <label for="monthlyStar2">☆</label>
+            <input id="monthlyStar1" name="setupRating" type="radio" value="1" class="radio-btn hide">
+            <label for="monthlyStar1">☆</label>
+            <div class="clear"></div>
+      </div><br><br>
+
+      <div class = eventNotes>
+        <label for="msg">Additional Notes:</label>
+      </div><br>
+      <div>
+        <textarea id="additionalNotes" class="scrollabletextbox" name="additionalNotes" placeholder="Add event notes here" rows="6"></textarea>
+      </div><br>
+     </div>
+
+     <div class = toright>
+        <div class = instructions>
+          <label for="msg">Instructions: </label>
+        </div><br>
+        <div>
+          <textarea id="instructions" class="scrollabletextbox" id="msg" name="instructions" placeholder="Add instructions for other members here" rows="12"></textarea>
+        </div><br><br><br><br><br>
+        <div>
+          <label for="eventStatus">Event Status: </label>
+          <div class=status>
+            <input readonly type="String" id="eventStatus" name="eventStatus" value="New">
+          </div>
+        </div><br><br><br><br><br><br><br>
+
+        <input type="hidden" id="eventType" name="eventType" value="Monthly">
+
+     </div>
+     <div class = toright>
+       input(class='submit-button' onsubmit="setEventStatus()" onclick="saveButtonFunctionMonthly()" type="button" value="Save")
+       a(class="submit-button" onclick="return confirm('Are you sure you wish to go back? Any unsaved event data will be lost!')" href="") Back
+     </div>
+  </div>
+
+  <div id="Weekly" class="tabcontent">
+
+    form(role='form', name='weeklyForm' action='postevent', method='post')
+     <div class='event-form'>
+      <p>Create a weekly event..</p>
+       <div class="required">
+        <div>
+          <label for="eventName">Event Name: </label>
+          <input type="text" id="eventName" name="eventName" placeholder="name" maxlength="20">
+        </div><br>
+      </div>
+      <div>
+        <label for="eventdate">Enter date of event:</label>
+        <input type="date" id="date" name="date">
+        <date-util format="dd/mm/yyyy"></date-util>
+      </div><br>
+      <div>
+        <label for="organiser">Organiser: </label>
+        <input type="text" id="organiser" name="organiser" placeholder="ex. John Doe" maxlength="20">
+      </div><br>
+      <div>
+        <label for="location">Location: </label>
+        <input type="text" id="location" name="location" maxlength="20">
+      </div><br>
+      <div class= eventNotes>
+        <label for="contact">Contact Details: </label>
+      </div>
+      <div>
+        <textarea id="contact" class="Contactscrollabletextbox" name="contact" rows="1"></textarea>
+      </div><br>
+      <div>
+        <label for="budget">Budget: </label>
+        <input type="number" id="budget" name="budget" placeholder="0">
+      </div><br>
+      <div>
+        <label for="PlannedAttendance">Planned Attendance: </label>
+        <input type="number" id="PlannedAttendance" name="PlannedAttendance" placeholder="0">
+      </div><br>
+      <div>
+        <label for="costPerHead">&nbsp &nbsp &nbsp &nbsp Cost per head: </label>
+        <input type="number" id="costPerHead" name="costPerHead" placeholder="0">
+      </div><br>
+      <div>
+        <label for="deductionOffered">&nbsp &nbsp &nbsp &nbsp Deduction Offered (%): </label>
+        <input type="number" id="deductionOffered" name="deductionOffered" placeholder="0">
+      </div><br>
+      <div>
+        <label for="totalCost">&nbsp &nbsp &nbsp &nbsp Total Cost: </label>
+        <input type="number" id="totalCost" name="totalCost" placeholder="0">
+      </div><br>
+      <div>
+        <label for="ActualAttendance">Actual Attendance: </label>
+        <input type="number" id="ActualAttendance" name="ActualAttendance" placeholder="0">
+      </div><br>
+      <label for="rating">Rate Event Setup: </label>
+
+      <div class="rating">
+          <input id="weeklyStar5" name="setupRating" type="radio" value="5" class="radio-btn hide" />
+            <label for="weeklyStar5">☆</label>
+            <input id="weeklyStar4" name="setupRating" type="radio" value="4" class="radio-btn hide" />
+            <label for="weeklyStar4">☆</label>
+            <input id="weeklyStar3" name="setupRating" type="radio" value="3" class="radio-btn hide" />
+            <label for="weeklyStar3">☆</label>
+            <input id="weeklyStar2" name="setupRating" type="radio" value="2" class="radio-btn hide" />
+            <label for="weeklyStar2">☆</label>
+            <input id="weeklyStar1" name="setupRating" type="radio" value="1" class="radio-btn hide" />
+            <label for="weeklyStar1">☆</label>
+            <div class="clear"></div>
+      </div><br><br>
+
+      <div class = eventNotes>
+        <label for="msg">Additional Notes:</label>
+      </div><br>
+      <div>
+        <textarea id="additionalNotes" class="scrollabletextbox" name="additionalNotes" placeholder="Add event notes here" rows="6"></textarea>
+      </div><br>
+     </div>
+
+     <div class = toright>
+        <div class = instructions>
+          <label for="msg">Instructions: </label>
+        </div><br>
+        <div>
+          <textarea id="instructions" class="scrollabletextbox" id="msg" name="instructions" placeholder="Add instructions for other members here" rows="12"></textarea>
+        </div><br><br><br><br><br>
+        <div>
+          <label for="eventStatus">Event Status: </label>
+          <div class=status>
+            <input readonly type="String" id="eventStatus" name="eventStatus" value="New">
+          </div>
+        </div><br><br><br><br><br><br><br>
+
+        <input type="hidden" id="eventType" name="eventType" value="Weekly">
+
+     </div>
+     <div class = toright>
+       input(class='submit-button' onsubmit="setEventStatus()" onclick="saveButtonFunctionWeekly()" type="button" value="Save")
+       a(class="submit-button" onclick="return confirm('Are you sure you wish to go back? Any unsaved event data will be lost!')" href="") Back
+     </div>
+  </div>
+
+  <div id="One-offs" class="tabcontent">
+
+    form(role='form', name='oneoffsForm' action='postevent', method='post')
+     <div class='event-form'>
+      <p>Create a one-off event..</p>
+       <div class="required">
+        <div>
+          <label for="eventName">Event Name: </label>
+          <input type="text" id="eventName" name="eventName" placeholder="name" maxlength="20">
+        </div><br>
+      </div>
+      <div>
+        <label for="eventdate">Enter date of event:</label>
+        <input type="date" id="date" name="date">
+        <date-util format="dd/mm/yyyy"></date-util>
+      </div><br>
+      <div>
+        <label for="organiser">Organiser: </label>
+        <input type="text" id="organiser" name="organiser" placeholder="ex. John Doe" maxlength="20">
+      </div><br>
+      <div>
+        <label for="location">Location: </label>
+        <input type="text" id="location" name="location" maxlength="20">
+      </div><br>
+      <div class= eventNotes>
+        <label for="contact">Contact Details: </label>
+      </div>
+      <div>
+        <textarea id="contact" class="Contactscrollabletextbox" name="contact" rows="1"></textarea>
+      </div><br>
+      <div>
+        <label for="budget">Budget: </label>
+        <input type="number" id="budget" name="budget" placeholder="0">
+      </div><br>
+      <div>
+        <label for="PlannedAttendance">Planned Attendance: </label>
+        <input type="number" id="PlannedAttendance" name="PlannedAttendance" placeholder="0">
+      </div><br>
+      <div>
+        <label for="costPerHead">&nbsp &nbsp &nbsp &nbsp Cost per head: </label>
+        <input type="number" id="costPerHead" name="costPerHead" placeholder="0">
+      </div><br>
+      <div>
+        <label for="deductionOffered">&nbsp &nbsp &nbsp &nbsp Deduction Offered (%): </label>
+        <input type="number" id="deductionOffered" name="deductionOffered" placeholder="0">
+      </div><br>
+      <div>
+        <label for="totalCost">&nbsp &nbsp &nbsp &nbsp Total Cost: </label>
+        <input type="number" id="totalCost" name="totalCost" placeholder="0">
+      </div><br>
+      <div>
+        <label for="ActualAttendance">Actual Attendance: </label>
+        <input type="number" id="ActualAttendance" name="ActualAttendance" placeholder="0">
+      </div><br>
+      <label for="rating">Rate Event Setup: </label>
+
+      <div class="rating">
+          <input id="one-offsStar5" name="setupRating" type="radio" value="5" class="radio-btn hide" />
+            <label for="one-offsStar5">☆</label>
+            <input id="one-offsStar4" name="setupRating" type="radio" value="4" class="radio-btn hide" />
+            <label for="one-offsStar4">☆</label>
+            <input id="one-offsStar3" name="setupRating" type="radio" value="3" class="radio-btn hide" />
+            <label for="one-offsStar3">☆</label>
+            <input id="one-offsStar2" name="setupRating" type="radio" value="2" class="radio-btn hide" />
+            <label for="one-offsStar2">☆</label>
+            <input id="one-offsStar1" name="setupRating" type="radio" value="1" class="radio-btn hide" />
+            <label for="one-offsStar1">☆</label>
+            <div class="clear"></div>
+      </div><br><br>
+
+      <div class = eventNotes>
+        <label for="msg">Additional Notes:</label>
+      </div><br>
+      <div>
+        <textarea id="additionalNotes" class="scrollabletextbox" name="additionalNotes" placeholder="Add event notes here" rows="6"></textarea>
+      </div><br>
+     </div>
+
+     <div class = toright>
+        <div class = instructions>
+          <label for="msg">Instructions: </label>
+        </div><br>
+        <div>
+          <textarea id="instructions" class="scrollabletextbox" id="msg" name="instructions" placeholder="Add instructions for other members here" rows="12"></textarea>
+        </div><br><br><br><br><br>
+        <div>
+          <label for="eventStatus">Event Status: </label>
+          <div class=status>
+            <input readonly type="String" id="eventStatus" name="eventStatus" value="New">
+          </div>
+        </div><br><br><br><br><br><br><br>
+
+        <input type="hidden" id="eventType" name="eventType" value="One-offs">
+
+     </div>
+     <div class = toright>
+       input(class='submit-button' onsubmit="setEventStatus()" onclick="saveButtonFunctiononeoffs()" type="button" value="Save")
+       a(class="submit-button" onclick="return confirm('Are you sure you wish to go back? Any unsaved event data will be lost!')" href="") Back
+     </div>
+  </div>
+
+  <div id="Sundries" class="tabcontent">
+
+    form(role='form', name='sundriesForm' action='postevent', method='post')
+     <div class='event-form'>
+      <p>Create a Sundries event..</p>
+       <div class="required">
+        <div>
+          <label for="eventName">Event Name: </label>
+          <input type="text" id="eventName" name="eventName" placeholder="name" maxlength="20">
+        </div><br>
+      </div>
+      <div>
+        <label for="eventdate">Enter date of event:</label>
+        <input type="date" id="date" name="date">
+        <date-util format="dd/mm/yyyy"></date-util>
+      </div><br>
+      <div>
+        <label for="organiser">Organiser: </label>
+        <input type="text" id="organiser" name="organiser" placeholder="ex. John Doe" maxlength="20">
+      </div><br>
+      <div>
+        <label for="location">Location: </label>
+        <input type="text" id="location" name="location" maxlength="20">
+      </div><br>
+      <div class= eventNotes>
+        <label for="contact">Contact Details: </label>
+      </div>
+      <div>
+        <textarea id="contact" class="Contactscrollabletextbox" name="contact" rows="1"></textarea>
+      </div><br>
+      <div>
+        <label for="budget">Budget: </label>
+        <input type="number" id="budget" name="budget" placeholder="0">
+      </div><br>
+      <div>
+        <label for="PlannedAttendance">Planned Attendance: </label>
+        <input type="number" id="PlannedAttendance" name="PlannedAttendance" placeholder="0">
+      </div><br>
+      <div>
+        <label for="costPerHead">&nbsp &nbsp &nbsp &nbsp Cost per head: </label>
+        <input type="number" id="costPerHead" name="costPerHead" placeholder="0">
+      </div><br>
+      <div>
+        <label for="deductionOffered">&nbsp &nbsp &nbsp &nbsp Deduction Offered (%): </label>
+        <input type="number" id="deductionOffered" name="deductionOffered" placeholder="0">
+      </div><br>
+      <div>
+        <label for="totalCost">&nbsp &nbsp &nbsp &nbsp Total Cost: </label>
+        <input type="number" id="totalCost" name="totalCost" placeholder="0">
+      </div><br>
+      <div>
+        <label for="ActualAttendance">Actual Attendance: </label>
+        <input type="number" id="ActualAttendance" name="ActualAttendance" placeholder="0">
+      </div><br>
+      <label for="rating">Rate Event Setup: </label>
+
+      <div class="rating">
+          <input id="sundriesStar5" name="setupRating" type="radio" value="5" class="radio-btn hide" />
+            <label for="sundriesStar5">☆</label>
+            <input id="sundriesStar4" name="setupRating" type="radio" value="4" class="radio-btn hide" />
+            <label for="sundriesStar4">☆</label>
+            <input id="sundriesStar3" name="setupRating" type="radio" value="3" class="radio-btn hide" />
+            <label for="sundriesStar3">☆</label>
+            <input id="sundriesStar2" name="setupRating" type="radio" value="2" class="radio-btn hide" />
+            <label for="sundriesStar2">☆</label>
+            <input id="sundriesStar1" name="setupRating" type="radio" value="1" class="radio-btn hide" />
+            <label for="sundriesStar1">☆</label>
+            <div class="clear"></div>
+      </div><br><br>
+
+      <div class = eventNotes>
+        <label for="msg">Additional Notes:</label>
+      </div><br>
+      <div>
+        <textarea id="additionalNotes" class="scrollabletextbox" name="additionalNotes" placeholder="Add event notes here" rows="6"></textarea>
+      </div><br>
+     </div>
+
+     <div class = toright>
+        <div class = instructions>
+          <label for="msg">Instructions: </label>
+        </div><br>
+        <div>
+          <textarea id="instructions" class="scrollabletextbox" id="msg" name="instructions" placeholder="Add instructions for other members here" rows="12"></textarea>
+        </div><br><br><br><br><br>
+        <div>
+          <label for="eventStatus">Event Status: </label>
+          <div class=status>
+            <input readonly type="String" id="eventStatus" name="eventStatus" value="New">
+          </div>
+        </div><br><br><br><br><br><br><br>
+
+        <input type="hidden" id="eventType" name="eventType" value="Sundries">
+
+     </div>
+     <div class = toright>
+       input(class='submit-button' onsubmit="setEventStatus()" onclick="saveButtonFunctionSundries()" type="button" value="Save")
+       a(class="submit-button" onclick="return confirm('Are you sure you wish to go back? Any unsaved event data will be lost!')" href="") Back
+     </div>
+  </div>
