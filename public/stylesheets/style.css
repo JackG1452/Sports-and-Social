@@ -1,0 +1,932 @@
+/*Default text style Layout*/
+body {
+
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  color: #0076B8;
+  text-decoration: none;
+}
+
+b{
+  text-decoration: underline;
+  text-decoration-color: #0076B8;
+
+}
+
+h1 {
+  font: 28px, "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-decoration-line: underline;
+  text-decoration-color: #0076B8;
+}
+
+h2 {
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h4 {
+  font: 24px, "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-decoration-line: underline;
+  text-decoration-color: #0076B8;
+}
+h5 {
+  font: 28px, "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-decoration-line: underline;
+  text-decoration-color: #0076B8;
+}
+p {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+/*Layout Section*/
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1685px;
+  height: 100%;
+  max-width:2500px;
+  min-width:1685px;
+}
+.main-body {
+  /*adds scrolling to main body*/
+  position: relative;
+  top:0px;
+  left: 180px;
+  padding-left: 50px;
+  padding-top: 25px;
+}
+
+#imgAllstate {
+  margin: 0px;
+  padding: 0px;
+  margin-left: 10px;
+  border: 0px;
+  z-index: 0;
+  left: 0;
+  height: 160px;
+  width: 160px;
+  position: relative;
+  top: -55px;
+}
+
+.headbar{
+  width: 100%;
+  height: 165px;
+  background-color: white;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  border-bottom: 2px solid #87CEFA;
+}
+
+.headbar h1{
+  position: relative;
+  left: 220px;
+  top: 50px;
+  width: 50%;
+  color: #000
+}
+
+.search input[type=text] {
+    float: left;
+    padding: 6px;
+    border: 2px solid grey;
+    margin-top: 0px;
+    font-size: 17px;
+    position: relative;
+}
+
+.search button[type=submit] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 0px;
+    font-size: 17px;
+    position: relative;
+    right: 0;
+}
+
+
+/* Vertical line styleing */
+.vl {
+    border-right: 2px solid #87CEFA;
+    height: 100%;
+    width: 0;
+    margin-left: 180px;
+    top: 0;
+    z-index: 4;
+    position: fixed;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 180px; /* Set the width of the sidebar */
+    position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+    margin: 0;
+    padding: 0;
+    z-index: 0; /* Stay on top */
+    background-color: white; /* Black */
+    /*overflow-x: hidden; /* Disable horizontal scroll */
+    height: 100%;
+}
+
+.sidebar-panel {
+  position: absolute;
+  top: 50px;
+  text-align: left;
+}
+
+/* The navigation menu links */
+.sidebar a {
+    padding: 6px 16px 20px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: lightgrey;
+    display: block;
+}
+#indent{
+    font-size: 14px;
+    padding-left: 30px;
+    display: none;
+}
+/* highlighting active menu tab */
+.sidebar-button.active {
+    color: black;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #0076B8;
+}
+
+.update-button {
+ position: relative;
+ background-color: #D3D3D3;
+ padding-top: 40px;
+ color: #0076B8;
+ padding: 5px 20px;
+ text-align: center;
+ text-decoration: none;
+ font-size: 16px;
+ margin-top: 10px;
+ border-radius: 8px;
+ border: 1px solid #000;
+}
+
+.update-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.update-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.update-button:hover span {
+  padding-right: 25px;
+}
+
+.update-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.veryimportantandvitalbutton {
+
+    background: transparent;
+    border: none !important;
+    font-size:0;
+    cursor:default;
+}
+
+/*Home page Content*/
+.image-grid {
+  margin-left: 250px;
+  margin-right: 25px;
+}
+
+.Images{
+  width: 350px;
+  height: 350px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+}
+
+/* .row {
+}
+
+.column {
+} */
+
+.hover-animation {
+  width: 350px;
+  height: 350px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+  overflow: hidden;
+
+}
+
+.hover-animation:before,
+.hover-animation:after{
+  top: 0;
+  bottom:0;
+  right:0;
+  left:0;
+  content: '';
+  position: absolute;
+  transition: 0.3s;
+}
+
+.hover-animation:after{
+  padding: 40%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: solid grey;
+  opacity: 0.7;
+  font-size: 14px;
+  background: #daecf3;
+  transform: translateY(100%);
+  content: attr(data-text);
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.hover-animation:hover:before{
+  transform: translateY(-50%);
+}
+
+.hover-animation:hover:after {
+  transform: translateY(0);
+}
+/*Update Members Content*/
+
+#memberstable{
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-left: 200px;
+  float: left;
+  width: 1000px;
+  text-align: left;
+  padding: 10px;
+  padding-bottom: 50px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 60px;
+  text-decoration: none;
+}
+
+/* Form button styling*/
+.save-button {
+  font-size: 16px;
+  text-decoration: underline;
+  padding: 5px;
+  border: none;
+  background: none;
+  color: #87CEFA;
+}
+
+
+/*Update Member Form Content*/
+
+.update-buttonMember {
+ position: relative;
+ background-color: #D3D3D3;
+ padding-top: 40px;
+ color: #0076B8;
+ padding: 5px 20px;
+ text-align: center;
+ text-decoration: none;
+ font-size: 16px;
+ margin-top: 10px;
+ border-radius: 8px;
+ border: 1px solid #000;
+}
+
+/* .update-buttonMember .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: lightgrey;
+    color: #0076B8;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #000;
+    padding: 20px 0;
+    font-size: 18px;
+
+    //Position the tooltip
+    position: absolute;
+    z-index: 1;
+}
+
+.update-buttonMember:hover .tooltiptext {
+    visibility: visible;
+} */
+
+.updatememberForm p{
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-decoration-line: underline;
+}
+
+.updatememberForm {
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  float:center;
+  text-align: center;
+}
+
+.AvatarImages{
+  vertical-align: middle;
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+  border-color:#87CEFA;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 100%;
+}
+
+#MemberInfo{
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+/*Plan Event Content*/
+
+/* Style tab links */
+.tablink1 {
+  background-color:rgb(100,149,237,0.4);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 230px;
+  height: 48px;
+  margin-right: 3px;
+}
+
+.tablink1:hover {
+  background: #3071A9;
+}
+
+.tablink2 {
+  background-color: rgb(255,160,122,0.6);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 230px;
+  height: 48px;
+  margin-right: 3px;
+}
+
+.tablink2:hover {
+  background: #fa8072;
+}
+
+.tablink3 {
+  background-color: rgb(154,205,50,0.6) ;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 230px;
+  height: 48px;
+  margin-right: 3px;
+}
+
+.tablink3:hover {
+  background: #008000;
+}
+
+
+.tablink4 {
+  background-color: rgb(205,92,92,0.8);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 230px;
+  height: 48px;
+  margin-right: 3px;
+}
+
+.tablink4:hover {
+  background: #882d17;
+}
+
+.tablink5 {
+  background-color: rgb(255,215,0,0.6);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 230px;
+  height: 48px;
+  margin-right: 3px;
+}
+
+.tablink5:hover {
+  background: #CFB53B;
+}
+
+/*Background for tab Forms*/
+#Annual {background-color: white;}
+#Monthly {background-color: white;}
+#Weekly {background-color: white;}
+#One-offs {background-color: white;}
+#Sundries {background-color: white;}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  border:1px solid black;
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 650px;
+  width: 1120px;
+}
+
+/* Form styleing */
+.event-form {
+  float: left;
+  width: 40%;
+  text-align: right;
+  margin-right: 100px;
+}
+
+.event-form p {
+  text-decoration-line: underline;
+  text-decoration-color: black;
+  }
+
+#Annual .event-form p {
+  background-color: rgb(100,149,237,0.4);
+  width: 200px;
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
+}
+
+#Monthly .event-form p {
+  background-color: rgb(255,160,122,0.6);
+  width: 200px;
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
+}
+
+#Weekly .event-form p {
+  background-color: rgb(154,205,50,0.6);
+  width: 200px;
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
+}
+
+#One-offs .event-form p {
+  background-color: rgb(205,92,92,0.8);
+  width: 200px;
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
+}
+
+#Sundries .event-form p {
+  background-color: rgb(255,215,0,0.6);
+  width: 200px;
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
+}
+
+.form-group {
+  float: right;
+}
+
+input {
+  color: black;
+}
+
+/* Adds red asterix next to required input fields in the label*/
+.required label:after {
+  color: #e32;
+  content: ' *';
+  display:inline;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: lightgrey;
+    opacity: 1; /* Firefox */
+    font-style: italic;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: lightgrey;
+    font-style: italic;
+}
+
+.eventNotes{
+  float: centre;
+  text-align: center;
+  margin-right: 38px;
+}
+
+.instructions{
+  float: centre;
+  text-align: center;
+  margin-right: 83px;
+}
+
+textarea {
+  resize: none;
+}
+
+.scrollabletextbox {
+height:100px;
+width:300px;
+font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+font-size: 82%;
+overflow:scroll;
+}
+
+.Contactscrollabletextbox {
+height:50px;
+width:177px;
+font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+font-size: 82%;
+overflow:scroll;
+}
+
+/* Styling for event status*/
+#eventStatus {
+  border: 0;
+  color: #0076B8
+}
+
+/* Star rating on form*/
+.txt-center {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.rating {
+    float: right;
+    width: 40%;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: right;
+}
+
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: black;
+}
+
+.toright{
+
+  float: right;
+  width: 40%;
+  text-align: right;
+  margin-right: 110px;
+}
+.status{
+  display: inline;
+  color:#87CEFA;
+}
+
+/* Form button styling*/
+.submit-button {
+  float: right;
+  width: 60px;
+  text-align: left;
+  font-size: 16px;
+  text-decoration: underline;
+  padding: 5px;
+  border: none;
+  background: none;
+  color: #87CEFA;
+}
+
+background-color: lightblue;
+
+input[type=submit] {
+    width: 120px;
+    height: 30px;
+    color: black;
+}
+
+input[type=text] {
+  color: black;
+}
+
+input[type=date] {
+  color: black;
+}
+
+input[type=number] {
+  color: black;
+}
+/*Event History Content*/
+
+#table {
+  margin: 0 auto;
+  margin-top: 40px;
+  float: left;
+}
+
+/*Update Event Content*/
+
+#updateTable{
+  width: 275px;
+  text-align: center;
+  padding: 10px;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 40px;
+}
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+/* Style #updateTable on Edit events page */
+
+#updateTable {
+  text-align: left;
+  margin-left: 6px;
+}
+
+
+.annualEvents{
+  float: left;
+  width: 275px;
+  margin-right: 25px;
+  display: inline;
+  border: 2px solid rgb(100,149,237,0.4);
+  /*background-color: rgb(100,149,237,0.2);*/
+}
+
+/* Style tab links */
+.Updatetablink1 {
+  background-color:rgb(100,149,237,0.4);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  /*width: 275px;*/
+  width: 279px;
+  height: 48px;
+  margin-right: 25px;
+  display: inline;
+}
+
+.monthlyEvents{
+  float: left;
+  width: 275px;
+  margin-right: 25px;
+  display: inline;
+  border: 2px solid rgb(255,160,122,0.6);
+  /*background-color: rgb(255,160,122,0.2);*/
+}
+
+.Updatetablink2 {
+  background-color: rgb(255,160,122,0.6);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 279px;
+  /*width: 275px;*/
+  height: 48px;
+  margin-right: 25px;
+  display: inline;
+}
+
+.weeklyEvents{
+  float: left;
+  width: 275px;
+  margin-right: 25px;
+  display: inline;
+  border: 2px solid rgb(154,205,50,0.6);
+  /*background-color: rgb(154,205,50,0.2);*/
+
+
+}
+
+.Updatetablink3 {
+  background-color: rgb(154,205,50,0.6) ;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 279px;
+  /*width: 275px;*/
+  height: 48px;
+  margin-right: 25px;
+  display: inline;
+}
+
+.One-offsEvents{
+  float: left;
+  width: 275px;
+  margin-right: 25px;
+  display: inline;
+  border: 2px solid rgb(205,92,92,0.8);
+  /*background-color: rgb(205,92,92,0.2);*/
+}
+
+
+.Updatetablink4 {
+  background-color: rgb(205,92,92,0.8);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 279px;
+  /*width: 275px;*/
+  height: 48px;
+  margin-right: 25px;
+  display: inline;
+}
+
+.sundriesEvents{
+  float: left;
+  width: 275px;
+  margin-right: 25px;
+  display: inline;
+  border: 2px solid rgb(255,215,0,0.6);
+  /*background-color: rgb(255,215,0,0.2);*/
+}
+
+.Updatetablink5 {
+  background-color: rgb(255,215,0,0.6);
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 279px;
+  /*width: 275px;*/
+  height: 48px;
+  margin-right: 25px;
+  display: inline;
+}
+
+/*Update Event Form Styling*/
+
+.updateForm{
+  float: left;
+}
+
+/*Event History From Styling*/
+
+.HistoryForm{
+  float: left;
+  text-align: right;
+}
+
+.HistoryForm p {
+  font-size: 28px;
+  font:"Lucida Grande", Helvetica, Arial, sans-serif;
+  text-decoration-line: underline;
+  text-decoration-color: #0076B8;
+}
+
+.Rightside{
+
+  float: right;
+  margin-top: 5%;
+  text-align: left;
+  margin-right: 40%;
+}
+
+.eventNotesHistory{
+  float: left;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.ratingHistory {
+    float: right;
+    width: 40%;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: right;
+}
+
+.ratingHistory> label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.ratingHistory > label:hover,
+.ratingHistory> label:hover ~ label,
+.ratingHistory > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.ratingHistory > label:hover:before,
+.ratingHistory > label:hover ~ label:before,
+.ratingHistory > input.radio-btn:checked ~ label:before,
+.ratingHistory > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: black;
+}
